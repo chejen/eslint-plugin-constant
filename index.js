@@ -4,10 +4,12 @@ module.exports = {
   rules: {
     'no-constant-setinterval-delay': require('./lib/rules/no-constant-setinterval-delay'),
     'no-constant-settimeout-delay': require('./lib/rules/no-constant-settimeout-delay'),
+    'no-module-level-constant-variable': require('./lib/rules/no-module-level-constant-variable'),
   },
   rulesConfig: {
     'no-constant-setinterval-delay': 1,
     'no-constant-settimeout-delay': 1,
+    'no-module-level-constant-variable': 1,
   },
   configs: {
     recommended: {
@@ -17,6 +19,7 @@ module.exports = {
       rules: {
         'constant/no-constant-setinterval-delay': 1,
         'constant/no-constant-settimeout-delay': 1,
+        'constant/no-module-level-constant-variable': 1,
       },
     },
   },
