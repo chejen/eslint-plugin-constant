@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Linting rules to find out the constant values that could/should be configurable",
   "main": "index.js",
+  "license": "MIT",
   "keywords": [
     "eslint",
     "eslint-plugin"
