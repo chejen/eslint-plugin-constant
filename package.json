@@ -1,0 +1,21 @@
+{
+  "name": "eslint-plugin-constant",
+  "version": "0.1.0",
+  "description": "Linting rules to find out the constant values that could/should be configurable",
+  "main": "index.js",
+  "keywords": [
+    "eslint",
+    "eslint-plugin"
+  ],
+  "scripts": {
+    "lint": "eslint *.js"
+  },
+  "peerDependencies": {
+    "eslint": ">=3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-google": "~0.14.0"
+  },
+  "author": "chejen"
+}
