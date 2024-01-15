@@ -8,14 +8,16 @@
     "eslint-plugin"
   ],
   "scripts": {
-    "lint": "eslint *.js"
+    "lint": "eslint *.js",
+    "test": "mocha tests/**/*.js"
   },
   "peerDependencies": {
     "eslint": ">=3.0.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
-    "eslint-config-google": "~0.14.0"
+    "eslint-config-google": "~0.14.0",
+    "mocha": "^10.2.0"
   },
   "author": "chejen"
 }
