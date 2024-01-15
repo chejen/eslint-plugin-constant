@@ -1,5 +1,5 @@
 /**
- * @fileoverview Find out a constant value in setTimeout's `delay` argument
+ * @fileoverview Find out a constant value in setInterval's `delay` argument
  * @author chejen
  */
 
@@ -9,7 +9,7 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-const rule = require('../../../lib/rules/no-constant-settimeout-delay');
+const rule = require('../../../lib/rules/no-constant-setinterval-delay');
 const { RuleTester } = require('eslint');
 
 // ------------------------------------------------------------------------------
@@ -18,20 +18,16 @@ const { RuleTester } = require('eslint');
 
 const ruleTester = new RuleTester();
 
-ruleTester.run('no-constant-settimeout-delay', rule, {
+ruleTester.run('no-constant-setinterval-delay', rule, {
   valid: [
-    'setTimeout(function() {}, 0);',
-    {
-      code: 'setTimeout(() => {}, FROM_CONFIG)',
-      parserOptions: { ecmaVersion: 6 },
-    },
+    'setInterval(function() {}, FROM_CONFIG);',
   ],
   invalid: [
     {
-      code: 'setTimeout(() => {}, 1000);',
+      code: 'setInterval(() => {}, 500);',
       parserOptions: { ecmaVersion: 6 },
       errors: [{
-        message: '1000 should be configurable',
+        message: '500 should be configurable',
       }],
     },
   ],
