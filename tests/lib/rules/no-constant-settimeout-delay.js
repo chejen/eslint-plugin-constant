@@ -21,6 +21,7 @@ const ruleTester = new RuleTester();
 ruleTester.run('no-constant-settimeout-delay', rule, {
   valid: [
     'setTimeout(function() {}, 0);',
+    'window.setTimeout(function() {}, 1);',
     {
       code: 'setTimeout(() => {}, FROM_CONFIG)',
       parserOptions: { ecmaVersion: 6 },
@@ -32,6 +33,13 @@ ruleTester.run('no-constant-settimeout-delay', rule, {
       parserOptions: { ecmaVersion: 6 },
       errors: [{
         message: '1000 should be configurable',
+      }],
+    },
+    {
+      code: 'window.setTimeout(() => {}, 750);',
+      parserOptions: { ecmaVersion: 6 },
+      errors: [{
+        message: '750 should be configurable',
       }],
     },
   ],

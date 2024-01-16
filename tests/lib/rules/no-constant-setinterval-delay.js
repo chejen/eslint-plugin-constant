@@ -21,6 +21,10 @@ const ruleTester = new RuleTester();
 ruleTester.run('no-constant-setinterval-delay', rule, {
   valid: [
     'setInterval(function() {}, FROM_CONFIG);',
+    {
+      code: 'window.setInterval(() => {}, FROM_CONFIG)',
+      parserOptions: { ecmaVersion: 6 },
+    },
   ],
   invalid: [
     {
@@ -28,6 +32,13 @@ ruleTester.run('no-constant-setinterval-delay', rule, {
       parserOptions: { ecmaVersion: 6 },
       errors: [{
         message: '500 should be configurable',
+      }],
+    },
+    {
+      code: 'window.setInterval(() => {}, 250);',
+      parserOptions: { ecmaVersion: 6 },
+      errors: [{
+        message: '250 should be configurable',
       }],
     },
   ],
