@@ -42,6 +42,12 @@ ruleTester.run('no-module-level-constant-variable', rule, {
       `,
       parserOptions: { ecmaVersion: 6, sourceType: 'module' },
     },
+    {
+      code: `
+        const emptyString = '';
+      `,
+      parserOptions: { ecmaVersion: 6 },
+    },
   ],
   invalid: [
     {
@@ -53,11 +59,11 @@ ruleTester.run('no-module-level-constant-variable', rule, {
       `,
       parserOptions: { ecmaVersion: 6 },
       errors: [{
-        message: 'bar should be configurable',
+        message: '"foo = bar" should be configurable',
       }, {
-        message: '99 should be configurable',
+        message: '"num = 99" should be configurable',
       }, {
-        message: 'true should be configurable',
+        message: '"flag = true" should be configurable',
       }],
     },
   ],
